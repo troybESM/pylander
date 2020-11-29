@@ -1,0 +1,25 @@
+service: pylander
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python3.8
+#  region: us-east-1
+
+functions:
+  pylander-word:
+    handler: handler.send_word
+    events:
+      - http:
+          path: words
+          method: get
+      - http:
+          path: words/{channel}/{word}
+          method: get
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: false
