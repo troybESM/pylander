@@ -1,6 +1,7 @@
 
 import ssl
 import json
+import random
 from websocket import create_connection
 
 def send_word_to_channel(word, channel):
@@ -14,29 +15,26 @@ def send_word_to_channel(word, channel):
     result =  ws.recv()
     print("Received '%s'" % result)
     ws.close()
+def get_random_word():
+    wordList = open('words.list').read().split()
+    random_word = random.choice(wordList)
+    print(f"Random Word is: {random_word}")
+    return random_word
 
 def send_word(event, context):
     # pathParams = json.load(event)
     channel = event['pathParameters']['channel']
-    word = event['pathParameters']['word']
+    # if event['pathParameters']['word']:
+    #     word = event['pathParameters']['word']
+    # else: 
+    word = get_random_word()
     # print(params)
     send_word_to_channel(word,channel) 
-    body = {
-        "input": event
-    }
+
 
     response = {
         "statusCode": 200,
+        "headers": {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Credentials': True},
         "body": json.dumps(event)
     }
-
     return response
-
-    # Use this code if you don't use the http event with the LAMBDA-PROXY
-    # integration
-    """
-    return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "event": event
-    }
-    """

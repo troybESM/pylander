@@ -14,8 +14,9 @@ functions:
           path: words
           method: get
       - http:
-          path: words/{channel}/{word}
+          path: words/{channel}
           method: get
+          cors: true
 
 plugins:
   - serverless-python-requirements
