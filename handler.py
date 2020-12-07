@@ -15,10 +15,13 @@ def send_word_to_channel(word, channel):
     result =  ws.recv()
     print("Received '%s'" % result)
     ws.close()
-def get_random_word():
-    wordList = open('words.list').read().split()
+def get_random_word(channel):
+    if channel.startswith('xmas'):
+        wordList = open('xmas.list').read().split()        
+    else:        
+        wordList = open('words.list').read().split()    
     random_word = random.choice(wordList)
-    print(f"Random Word is: {random_word}")
+    # print(f"Random Word is: {random_word}")
     return random_word
 
 def send_word(event, context):
@@ -27,7 +30,7 @@ def send_word(event, context):
     # if event['pathParameters']['word']:
     #     word = event['pathParameters']['word']
     # else: 
-    word = get_random_word()
+    word = get_random_word(channel)
     # print(params)
     send_word_to_channel(word,channel) 
 
