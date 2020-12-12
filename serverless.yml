@@ -20,7 +20,9 @@ functions:
 
 plugins:
   - serverless-python-requirements
+  - serverless-plugin-log-retention
 
 custom:
   pythonRequirements:
     dockerizePip: false
+  logRetentionInDays: 3
