@@ -20,7 +20,7 @@ def get_random_word(channel):
         wordList = open('xmas.list').read().split()        
     elif channel.startswith('adult'):
         wordList = open('adult.list').read().split()
-    elif channel.startswith('starwars')   
+    elif channel.startswith('starwars'):
         wordList = open('starwars.list').read().split()
     else:        
         wordList = open('words.list').read().split()    
