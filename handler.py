@@ -22,6 +22,10 @@ def get_random_word(channel):
         wordList = open('adult.list').read().split()
     elif channel.startswith('starwars'):
         wordList = open('starwars.list').read().split()
+    elif channel.startswith('disney'):
+        wordList = open('disney.list').read().split()
+    elif channel.startswith('marvel'):
+        wordList = open('marvel.list').read().split()
     else:        
         wordList = open('words.list').read().split()    
     random_word = random.choice(wordList)
