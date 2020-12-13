@@ -1,0 +1,25 @@
+{
+  "name": "pylander",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless": "^2.15.0",
+    "serverless-plugin-log-retention": "^2.0.0",
+    "serverless-python-requirements": "^5.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/troybESM/pylander.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/troybESM/pylander/issues"
+  },
+  "homepage": "https://github.com/troybESM/pylander#readme"
+}
